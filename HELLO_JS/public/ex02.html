@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+	<input type="text" id="it" value="500"/>
+	<input type="button" value="decrease" class="btn"/>
+	
+	<script type="text/javascript">
+	
+	document.querySelector('.btn').addEventListener("click", function () {
+		let get = document.getElementById('it').value;
+			get--;
+			console.log(get);
+			document.querySelector('#it').value = get;
+	})
+
+	</script>
+</body>
+</html>

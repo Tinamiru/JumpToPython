@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+.it {
+	width: 30px;
+}
+</style>
+</head>
+<body>
+	<table border="1px">
+		<tr>
+			<td>첫별수:</td>
+			<td><input type="text" class="it" id="it_first" /></td>
+		</tr>
+		<tr>
+			<td>끝별수:</td>
+			<td><input type="text" class="it" id="it_last" /></td>
+		</tr>
+		<tr>
+			<td colspan="2"><input type="button" class="btn"
+				style="width: 100%" value="별출력하기" /></td>
+		</tr>
+		<tr>
+			<td style="height: 200px;" colspan="2">
+				<div id="mydiv"></div>
+			</td>
+		</tr>
+
+
+	</table>
+	<script type="text/javascript">
+		document.querySelector('.btn').addEventListener("click", function() {
+			let firstNum = parseInt(document.getElementById('it_first').value);
+			let secondNum = parseInt(document.getElementById('it_last').value);
+
+			let result = '';
+			for (var i = firstNum; i < secondNum+1; i++) {
+				for (var j = 0; j < i; j++) {
+					result +="*"
+				}
+				result += "<br>";
+				console.log(result);
+			}
+			document.getElementById('mydiv').innerHTML = result;
+		});
+	</script>
+</body>
+</html>

@@ -22,9 +22,7 @@ class MainClass(QMainWindow, form_class):
         powNum = int(self.le3.text())
         sum = 0
         
-        arr = list(range(a,b+1))
-        
-        for i in arr:
+        for i in range(a,b+1):
             if i % powNum == 0:
                 sum += i
         self.le4.setText(str(sum))

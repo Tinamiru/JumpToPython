@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<table border="1px">
+		<tr>
+			<td><div class="mydiv">__</div></td>
+			<td><div class="mydiv">__</div></td>
+			<td><div class="mydiv">__</div></td>
+			<td><div class="mydiv">__</div></td>
+			<td><div class="mydiv">__</div></td>
+			<td><div class="mydiv">__</div></td>
+		</tr>
+		<tr>
+			<td colspan="6"><input type="button" class="btn" value="로또생성하기"
+				style="width: 100%"></td>
+		</tr>
+	</table>
+
+	<script type="text/javascript">
+		document.querySelector('.btn').addEventListener("click", function() {
+			let arr = [];
+			for (var i = 0; i <= 45; i++) {
+				arr.push(i);
+			}
+			shuffle(arr)
+			
+			let lotto = document.querySelectorAll('.mydiv');
+			
+			lotto[0].innerHTML = arr[0];
+			lotto[1].innerHTML = arr[1];
+			lotto[2].innerHTML = arr[2];
+			lotto[3].innerHTML = arr[3];
+			lotto[4].innerHTML = arr[4];
+			lotto[5].innerHTML = arr[5];
+		});
+		
+		function shuffle(array) {
+			  array.sort(() => Math.random() - 0.5);
+			}
+	</script>
+
+</body>
+</html>

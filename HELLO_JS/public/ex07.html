@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+.it {
+	width: 30px;
+}
+</style>
+</head>
+<body>
+	<table border="1px">
+		<tr>
+			<td>나:</td>
+			<td><input type="text" class="it" id="itMine" /></td>
+		</tr>
+		<tr>
+			<td>컴:</td>
+			<td><input type="text" class="it" id="itCom" /></td>
+		</tr>
+		<tr>
+			<td>결과:</td>
+			<td><input type="text" class="it" id="itResult" /></td>
+		<tr>
+			<td colspan="2"><input type="button" class="btn" style="width: 100%"
+				value="게임하기" /></td>
+
+		</tr>
+
+	</table>
+
+	<script type="text/javascript">
+		document.querySelector('.btn').addEventListener(
+				"click",
+				function() {
+					let myPick = document.getElementById('itMine').value;
+					let comPick = comRan();
+					document.getElementById('itCom').value = comPick;
+					console.log(myPick);
+					console.log(comPick);
+
+					let result = '';
+
+					if (myPick == comPick) {
+						result = "비김"
+					} else if (myPick == "가위" && comPick == "보"
+							|| myPick == "바위" && comPick == "가위"
+							|| myPick == "보" && comPick == "바위") {
+						result = "이김";
+					} else {
+						result = "짐";
+					}
+					console.log(result);
+					document.getElementById('itResult').value = result;
+
+				});
+
+		function comRan() {
+			let ranNum = Math.random();
+			if (ranNum < 0.33) {
+				return '가위';
+			} else if (ranNum > 0.66) {
+				return '바위';
+			} else {
+				return '보';
+			}
+		}
+	</script>
+</body>
+</html>

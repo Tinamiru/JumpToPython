@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+.it {
+	width: 20px;
+}
+</style>
+</head>
+
+<body>
+	<table border="1px">
+		<tr>
+			<td>나:</td>
+			<td><input type="text" class="it" id="it_mine" ></td>
+		</tr>
+		<tr>
+			<td>컴:</td>
+			<td><input type="text" class="it" id="it_com" ></td>
+		</tr>
+		<tr>
+			<td>결과:</td>
+			<td><input type="text" class="it" id="it_result" ></td>
+		</tr>
+		<tr>
+			<td colspan="2"><input type="button" value="게임하기" class="btn" style="width: 100%"></td>
+		</tr>
+		
+
+
+	</table>
+	<script type="text/javascript">
+		document.querySelector('.btn').addEventListener("click", function() {
+			let myPick = document.getElementById('it_mine').value;
+			let comPick = comRan();
+			document.getElementById('it_com').value = comPick;
+			console.log(myPick);
+			console.log(comPick);
+			
+			let result = '';
+			
+			if (myPick == comPick) {
+				result = "이김"
+			} else {
+				result = "짐";
+			}
+			console.log(result);
+			document.getElementById('it_result').value = result;
+
+		});
+		
+		function comRan() {
+			let ranNum = Math.random();
+			if (ranNum > 0.5) {
+				return '홀';
+			} else {
+				return '짝';
+			}
+			
+		}
+	</script>
+
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+.btn {
+	width: 100%;
+}
+</style>
+</head>
+<body>
+	<table border="1px">
+		<tr>
+			<td colspan="3"><input type="text" style="width: 100px" id="it" />
+			</td>
+		</tr>
+		<tr>
+			<td><input type="button" class="btn" value="1" /></td>
+			<td><input type="button" class="btn" value="2" /></td>
+			<td><input type="button" class="btn" value="3" /></td>
+		</tr>
+		<tr>
+			<td><input type="button" class="btn" value="4" /></td>
+			<td><input type="button" class="btn" value="5" /></td>
+			<td><input type="button" class="btn" value="6" /></td>
+		</tr>
+		<tr>
+			<td><input type="button" class="btn" value="7" /></td>
+			<td><input type="button" class="btn" value="8" /></td>
+			<td><input type="button" class="btn" value="9" /></td>
+		</tr>
+		<tr>
+			<td><input type="button" class="btn" value="0" /></td>
+			<td colspan="2"><input type="button" class="call" value="call" />
+			</td>
+		</tr>
+	</table>
+	<script type="text/javascript">
+		let len = document.getElementsByClassName('btn').length;
+		for (var i = 0; i < len; i++) {
+			document.querySelectorAll('.btn')[i].addEventListener("click",
+					function() {
+						var num = event.target.value;
+						document.querySelector('#it').value += num
+					});
+		}
+
+		document.querySelector('.call').addEventListener("click", function() {
+			let numbers = document.querySelector('#it').value;
+			alert(numbers + "로 전화를 겁니다.");
+		});
+	</script>
+</body>
+</html>
