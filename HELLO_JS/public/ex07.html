@@ -23,37 +23,62 @@
 			<td>결과:</td>
 			<td><input type="text" class="it" id="itResult" /></td>
 		<tr>
-			<td colspan="2"><input type="button" class="btn" style="width: 100%"
-				value="게임하기" /></td>
+			<td colspan="2"><input type="button" class="btn"
+				style="width: 100%" value="게임하기" /></td>
 
 		</tr>
 
 	</table>
 
 	<script type="text/javascript">
-		document.querySelector('.btn').addEventListener(
-				"click",
-				function() {
-					let myPick = document.getElementById('itMine').value;
-					let comPick = comRan();
-					document.getElementById('itCom').value = comPick;
-					console.log(myPick);
-					console.log(comPick);
+		var objs = document.querySelector('.btn');
+		var objsmy = document.querySelector('#itMine');
 
-					let result = '';
+		objs.addEventListener("click", function() {
+			let myPick = document.getElementById('itMine').value;
+			let comPick = comRan();
+			document.getElementById('itCom').value = comPick;
+			console.log(myPick);
+			console.log(comPick);
 
-					if (myPick == comPick) {
-						result = "비김"
-					} else if (myPick == "가위" && comPick == "보"
-							|| myPick == "바위" && comPick == "가위"
-							|| myPick == "보" && comPick == "바위") {
-						result = "이김";
-					} else {
-						result = "짐";
+			let result = '';
+
+			if (myPick == comPick) {
+				result = "비김"
+			} else if (myPick == "가위" && comPick == "보" || myPick == "바위"
+					&& comPick == "가위" || myPick == "보" && comPick == "바위") {
+				result = "이김";
+			} else {
+				result = "짐";
+			}
+			console.log(result);
+			document.getElementById('itResult').value = result;
+		});
+
+		objsmy.addEventListener("keydown",
+				function(e) {
+					if (e.keyCode == 13) {
+						
+						let myPick = document.getElementById('itMine').value;
+						let comPick = comRan();
+						document.getElementById('itCom').value = comPick;
+						console.log(myPick);
+						console.log(comPick);
+
+						let result = '';
+
+						if (myPick == comPick) {
+							result = "비김"
+						} else if (myPick == "가위" && comPick == "보"
+								|| myPick == "바위" && comPick == "가위"
+								|| myPick == "보" && comPick == "바위") {
+							result = "이김";
+						} else {
+							result = "짐";
+						}
+						console.log(result);
+						document.getElementById('itResult').value = result;
 					}
-					console.log(result);
-					document.getElementById('itResult').value = result;
-
 				});
 
 		function comRan() {

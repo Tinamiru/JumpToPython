@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+input[type='text'] {
+	width: 180px
+}
+</style>
+</head>
+<body>
+	<input type="text" id="it_a" />에서<br>
+	<input type="text" id="it_b" />까지<br>
+	<input type="text" id="it_c" /><br>
+	<input type="button" id="it_btn" value="배수의 합은" /><br>
+	<input type="text" id="it_r" />
+
+	<script type="text/javascript">
+		document.querySelector('#it_btn').addEventListener('click', function() {
+			var a = document.querySelector('#it_a').value
+			var b = document.querySelector('#it_b').value
+			var c = document.querySelector('#it_c').value
+			var r = document.querySelector('#it_r')
+
+			let result = 0;
+			for (var i = a; i <= b; i++) {
+				if (i % c == 0) {
+					result = parseInt(result);
+					result += i;
+				}
+			}
+			r.value = result;
+			
+		});
+	</script>
+</body>
+</html>

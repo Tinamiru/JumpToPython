@@ -38,10 +38,11 @@
 
 			let result = '';
 			for (var i = firstNum; i < secondNum+1; i++) {
+				result += String(i).padStart(2,'0')+"|"
 				for (var j = 0; j < i; j++) {
 					result +="*"
 				}
-				result += "<br>";
+				result += "<br/>";
 				console.log(result);
 			}
 			document.getElementById('mydiv').innerHTML = result;
