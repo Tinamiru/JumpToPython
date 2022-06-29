@@ -6,12 +6,10 @@ form_class = uic.loadUiType("omok01.ui")[0]
 
 
 
-class MainClass(QMainWindow, form_class):
-    global a
-    a = 0
-    
+class MainClass(QMainWindow, form_class):    
     def __init__(self):
         QMainWindow.__init__(self)
+        self.flagWb = False
         self.setupUi(self)
         
         for i in range(10):
@@ -25,12 +23,12 @@ class MainClass(QMainWindow, form_class):
         self.show()
     
     def myclick(self):
-        global a
-        if a % 2 == 0 :
+        if self.flagWb:
             self.sender().setIcon(QtGui.QIcon("1.png"))
         else :
             self.sender().setIcon(QtGui.QIcon("2.png"))
-        a += 1
+        
+        self.flagWb = not self.flagWb
             
 
         
