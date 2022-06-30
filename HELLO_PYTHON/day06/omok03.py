@@ -2,7 +2,7 @@ import sys
 from PyQt5 import uic, QtGui, QtCore
 from PyQt5.QtWidgets import QApplication, QMainWindow, QPushButton, QMessageBox
 
-form_class = uic.loadUiType("omok02.ui")[0]
+form_class = uic.loadUiType("omok03.ui")[0]
 
 
 class MainClass(QMainWindow, form_class): 
@@ -12,16 +12,16 @@ class MainClass(QMainWindow, form_class):
         self.flagWb = False
         self.flagIng = True
 
-        self.arr2D = [[0]*11 for i in range(10)]
+        self.arr2D = [[0]*20 for i in range(19)]
         
         
         self.pb2D = []
         self.setupUi(self)
         self.pb.clicked.connect(self.reset)
         
-        for i in range(10): 
+        for i in range(19): 
             line = []
-            for j in range(10):
+            for j in range(19):
                 btn = QPushButton('', self)
                 btn.setIcon(QtGui.QIcon("0.png"))
                 btn.setGeometry((j * 40)+40, (i * 40)+60, 40, 40)
@@ -206,8 +206,8 @@ class MainClass(QMainWindow, form_class):
             return cnt
         
     def myrender(self):
-        for i in range(10):
-            for j in range(10):
+        for i in range(19):
+            for j in range(19):
                 if self.arr2D[i][j] == 0:
                     self.pb2D[i][j].setIcon(QtGui.QIcon("0.png"))
                 if self.arr2D[i][j] == 1:
@@ -216,8 +216,8 @@ class MainClass(QMainWindow, form_class):
                     self.pb2D[i][j].setIcon(QtGui.QIcon("2.png"))
     
     def reset(self):
-        for i in range(10):
-            for j in range(10):
+        for i in range(19):
+            for j in range(19):
                 self.arr2D[i][j] = 0
         self.myrender()
         self.flagIng = True
