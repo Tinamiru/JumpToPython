@@ -7,16 +7,18 @@ if conn.open:
     print("connect success\n")
 
 sql = """
-        select e_id as 아이디,
-               e_name as 이름,
-               sex as 성별,
-               addr as 주소
-          from emp
+        insert into emp(
+            e_id,
+            e_name,
+            sex,
+            addr)
+        value(
+            %s,%s,%s,%s
+            );
       """
-cursors.execute(query=sql)
+cnt = cursors.execute(sql, (7,7,7,7))
+if cnt > 0:
+    print("check query result : success")
 
-data = cursors.fetchall()
-for record in data:
-    print(record) 
-
+conn.commit()
 conn.close()

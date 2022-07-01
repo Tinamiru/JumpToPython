@@ -7,16 +7,13 @@ if conn.open:
     print("connect success\n")
 
 sql = """
-        select e_id as 아이디,
-               e_name as 이름,
-               sex as 성별,
-               addr as 주소
-          from emp
+        DELETE FROM emp
+         WHERE e_id = 7
       """
-cursors.execute(query=sql)
+cnt = cursors.execute(sql)
 
-data = cursors.fetchall()
-for record in data:
-    print(record) 
+if cnt > 0:
+    print(" check the generated query result is success")
 
+conn.commit()
 conn.close()

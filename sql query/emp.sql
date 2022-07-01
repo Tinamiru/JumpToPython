@@ -16,7 +16,7 @@ VALUE (
 	3,
 	3,
 	3
-);
+);emp
 
 UPDATE emp
 	SET e_name = 4,
