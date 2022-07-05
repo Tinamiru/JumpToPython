@@ -128,13 +128,13 @@ public class DaoEmp {
 		Statement stmt = null;
 
 		String url = "jdbc:mysql://127.0.0.1:3305/python";
-		Class.forName("com.mysql.jdbc.Driver");
+		Class.forName("com.mysql.cj.jdbc.Driver");
 		int cnt = 0;
 		try {
 			String sql = "insert into emp" + "(e_id,e_name,sex,addr)" + "value" + "(" + vo.getE_name() + ","
 					+ vo.getE_id() + "," + vo.getSex() + "," + vo.getAddr() + ")";
 			conn = DriverManager.getConnection(url, "root", "python");
-			stmt = conn.prepareStatement(sql);
+			stmt = conn.createStatement();
 			cnt = stmt.executeUpdate(sql);
 
 			if (cnt > 0) {

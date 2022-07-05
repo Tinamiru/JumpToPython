@@ -12,10 +12,10 @@ INSERT into emp (
 	addr
 )
 VALUE (
-	3,
-	3,
-	3,
-	3
+	6,
+	'재린',
+	'남',
+	'대전'
 );emp
 
 UPDATE emp

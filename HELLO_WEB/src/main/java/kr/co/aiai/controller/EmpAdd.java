@@ -9,9 +9,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import kr.co.aiai.dao.DaoEmp;
-import kr.co.aiai.dao.EmpVO;
-
 @WebServlet("/emp_add")
 public class EmpAdd extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
