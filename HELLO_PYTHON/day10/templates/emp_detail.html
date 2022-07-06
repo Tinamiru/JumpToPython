@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<table border="1px">
+		<tr>
+			<td>사번</td>
+			<td>{{list.e_id}}</td>
+		</tr>
+		<tr>
+			<td>이름</td>
+			<td>{{list.e_name}}</td>
+		</tr>
+		<tr>
+			<td>성별</td>
+			<td>{{list.sex}}</td>
+		</tr>
+		<tr>
+			<td>주소</td>
+			<td>{{list.addr}}</td>
+		</tr>
+		<tr>
+			<td colspan="2">
+				<input type="button" value="목록" onclick="location.href='./emp_list'" />
+				<input type="button" value="수정" onclick="location.href='./emp_mod?e_id={{list.e_id}}'" />
+				<input type="button" value="삭제" onclick="location.href='./emp_del?e_id={{list.e_id}}'" />
+			</td>
+		</tr>
+	</table>
+</body>
+</html>

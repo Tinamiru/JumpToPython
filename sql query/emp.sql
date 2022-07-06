@@ -24,5 +24,8 @@ UPDATE emp
 		 addr = 4
  WHERE e_id = 4;
  
- DELETE FROM emp
- WHERE e_id = 3;
+ DELETE FROM emp;
+ 
+ALTER TABLE emp AUTO_INCREMENT = 1;
+ 
+ ROLLBACK;

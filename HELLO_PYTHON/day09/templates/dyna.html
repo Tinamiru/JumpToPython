@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	dynamic 이름 : {{a}}
+	<br> {% for i in b%} {{i}}
+	<br>{% endfor%}
+	
+	<table border="1px">
+		<tr>
+			<td>사번</td>
+			<td>이름</td>
+			<td>성별</td>
+			<td>주소</td>
+		</tr>
+	<br> {% for i in c%}
+	<tr>
+			<td>{{i.e_id}}</td>
+			<td>{{i.e_name}}</td>
+			<td>{{i.sex}}</td>
+			<td>{{i.addr}}</td>
+		</tr>
+	<br>{% endfor%}
+	</table>
+</body>
+</html>

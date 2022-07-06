@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<input type="text" id="cnt" value="{{cnt}}" />
+	<script type="text/javascript">
+		var cnt = document.querySelector('#cnt').value;
+		console.log(cnt);
+		if (cnt == 1) {
+			alert("정상적으로 삭제되었습니다.");
+			location.href = "emp_list";
+		} else {
+			alert("오류발생");
+			history.back();
+		}
+	</script>
+</body>
+</html>

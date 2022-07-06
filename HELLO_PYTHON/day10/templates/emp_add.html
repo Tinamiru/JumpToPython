@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<form method='post' action="http://127.0.0.1:5000/emp_add_act" >
+		<table border="1px">
+			<tr>
+				<td>사번</td>
+				<td><input type="text" value="자동기입." readonly /></td>
+			</tr>
+			<tr>
+				<td>이름</td>
+				<td><input type="text" name="e_name" /></td>
+			</tr>
+			<tr>
+				<td>성별</td>
+				<td><input type="text" name="sex" /></td>
+			</tr>
+			<tr>
+				<td>주소</td>
+				<td><input type="text" name="addr" /></td>
+			</tr>
+			<tr>
+				<td colspan="2">
+				<input type="button" value="목록" onclick="location.href='./emp_list'" />
+				<input type="submit" value="생성">
+			</td>
+			</tr>
+		</table>
+	</form>
+</body>
+</html>
