@@ -1,3 +1,5 @@
+from tensorflow import keras
 import tensorflow as tf
 
-print(tf.__version__)
+print("keras : ", keras.__version__)
+print("tensorflow : ", tf.__version__)

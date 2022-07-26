@@ -1,11 +1,10 @@
 import numpy as np
-import tensorflow as tf
 from tensorflow import keras
 from keras import datasets, layers, models
 
 class_names = ['airplane', 'automobile', 'bird', 'cat', 'deer', 'dog', 'frog', 'horse', 'ship', 'truck']
  
-(train_images, train_labels), (test_images, test_labels) = datasets.cifar10.load_data()
+(train_images, train_labels), (test_images, test_labels) = keras.datasets.cifar10.load_data()
 
 test_image = test_images
 labels_correct = test_labels
@@ -15,6 +14,7 @@ print("Test samples:", test_images.shape, test_labels.shape)
  
 test_images = test_images.reshape((10000, 32, 32, 3))
 test_images = test_images / 255.0
+print("test models Sequential")
  
 model = models.Sequential()
 model.add(layers.Conv2D(32, (3, 3), activation='relu', input_shape=(32, 32, 3)))
@@ -25,17 +25,20 @@ model.add(layers.Conv2D(64, (3, 3), activation='relu'))
 model.add(layers.Flatten())
 model.add(layers.Dense(64, activation='relu'))
 model.add(layers.Dense(10, activation='softmax'))
+print("test compile")
  
 model.compile(optimizer='adam', loss='sparse_categorical_crossentropy', metrics=['accuracy'])
 
  
-with tf.device("/device:GPU:0"):
-    model.fit(train_images, train_labels, epochs=1)
+print("test with tf.device")
+model.fit(train_images, train_labels, epochs=10)
  
+print("test evaluate")
 test_loss, test_acc = model.evaluate(test_images, test_labels)
  
 print('Test accuracy:', test_acc)
  
+print("test predictions")
 predictions = model.predict(test_images)
 
 cnt_o = 0

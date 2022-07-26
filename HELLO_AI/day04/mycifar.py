@@ -1,14 +1,14 @@
 import numpy as np
 import matplotlib.pyplot as plt
 import tensorflow as tf
-from tensorflow import keras
 from keras import datasets, layers, models
+from tensorflow import keras
 
 
 class_names = ['airplane', 'automobile', 'bird', 'cat', 'deer', 'dog', 'frog', 'horse', 'ship', 'truck']
 
  
-(train_images, train_labels), (test_images, test_labels) = datasets.cifar10.load_data()
+(train_images, train_labels), (test_images, test_labels) = keras.datasets.cifar10.load_data()
  
  
 print("Train samples:", train_images.shape, train_labels.shape)
