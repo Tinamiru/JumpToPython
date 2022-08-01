@@ -15,7 +15,7 @@ class MainClass(QMainWindow, form_class):
     def __init__(self) :
         QMainWindow.__init__(self)
         rg = RaoGibo()
-        self.arr_i,self.arr_j=rg.getGibo("0_0_3_2.psq")
+        self.arr_i,self.arr_j=rg.getGibo("0_0_1_2.psq")
 
         self.idx_g = 0
         self.flagWb = True
