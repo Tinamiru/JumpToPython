@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>Kakao 지도 시작하기</title>
+</head>
+<body>
+	<div id="map" style="width: 500px; height: 400px;">카카오 맵</div>
+	<script type="text/javascript"
+		src="//dapi.kakao.com/v2/maps/sdk.js?appkey=43cb1ce1efc84f18e508a13533557026"></script>
+	<script>
+		var mapContainer = document.getElementById('map'), // 지도를 표시할 div  
+		mapOption = {
+			center : new kakao.maps.LatLng(36.32520852, 127.4088203), // 지도의 중심좌표
+			level : 3
+		// 지도의 확대 레벨
+		};
+
+		var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
+
+		// 마커를 표시할 위치와 title 객체 배열입니다 
+		var positions = [ {
+			title : "map",
+			latlng : new kakao.maps.LatLng(36.32520852, 127.4088203
+
+			)
+		}, {
+			title : "map",
+			latlng : new kakao.maps.LatLng(36.32521734, 127.40882871
+
+			)
+		}, {
+			title : "map",
+			latlng : new kakao.maps.LatLng(36.32521895, 127.40881641
+
+			)
+		}, {
+			title : "map",
+			latlng : new kakao.maps.LatLng(36.32522431, 127.40879727
+
+			)
+		}, {
+			title : "map",
+			latlng : new kakao.maps.LatLng(36.32522856, 127.40878577
+
+			)
+		}, {
+			title : "map",
+			latlng : new kakao.maps.LatLng(36.32523344, 127.40877529
+
+			)
+		}, {
+			title : "map",
+			latlng : new kakao.maps.LatLng(36.32523129, 127.40875973
+
+			)
+		}, {
+			title : "map",
+			latlng : new kakao.maps.LatLng(36.32520682, 127.4087251
+
+			)
+		}, {
+			title : "map",
+			latlng : new kakao.maps.LatLng(36.32519328, 127.4087046
+
+			)
+		}, {
+			title : "map",
+			latlng : new kakao.maps.LatLng(36.32519947, 127.40867035
+
+			)
+		}, {
+			title : "map",
+			latlng : new kakao.maps.LatLng(36.32525748, 127.40872173
+
+			)
+		}, {
+			title : "map",
+			latlng : new kakao.maps.LatLng(36.32525102, 127.40871382
+
+			)
+		}, {
+			title : "map",
+			latlng : new kakao.maps.LatLng(36.32523838, 127.40869829
+
+			)
+		}, {
+			title : "map",
+			latlng : new kakao.maps.LatLng(36.3252275, 127.40868516
+
+			)
+		}, {
+			title : "map",
+			latlng : new kakao.maps.LatLng(36.32521851, 127.40867472
+
+			)
+		}, {
+			title : "map",
+			latlng : new kakao.maps.LatLng(36.32521023, 127.40866204
+
+			)
+		}, {
+			title : "map",
+			latlng : new kakao.maps.LatLng(36.32520106, 127.40864972
+
+			)
+		}, {
+			title : "map",
+			latlng : new kakao.maps.LatLng(36.3251839, 127.40863854
+
+			)
+		}, {
+			title : "map",
+			latlng : new kakao.maps.LatLng(36.32517758, 127.40864707
+
+			)
+		}, {
+			title : "map",
+			latlng : new kakao.maps.LatLng(36.32517469, 127.40866464
+
+			)
+		}, {
+			title : "map",
+			latlng : new kakao.maps.LatLng(36.32518353, 127.40867092
+
+			)
+		}, {
+			title : "map",
+			latlng : new kakao.maps.LatLng(36.32519391, 127.40868855
+
+			)
+		}, {
+			title : "map",
+			latlng : new kakao.maps.LatLng(36.32519921, 127.40869783
+
+			)
+		}, {
+			title : "map",
+			latlng : new kakao.maps.LatLng(36.32520484, 127.40870654
+
+			)
+		}, {
+			title : "map",
+			latlng : new kakao.maps.LatLng(36.32521502, 127.40872325
+
+			)
+		}, {
+			title : "map",
+			latlng : new kakao.maps.LatLng(36.32522668, 127.40873939
+
+			)
+		}, {
+			title : "map",
+			latlng : new kakao.maps.LatLng(36.32523694, 127.40875587
+
+			)
+		}, {
+			title : "map",
+			latlng : new kakao.maps.LatLng(36.32524397, 127.40877168
+
+			)
+		}, {
+			title : "map",
+			latlng : new kakao.maps.LatLng(36.32524805, 127.4087894
+
+			)
+		}, {
+			title : "map",
+			latlng : new kakao.maps.LatLng(36.3252532, 127.40880057
+
+			)
+		}, {
+			title : "map",
+			latlng : new kakao.maps.LatLng(36.32526857, 127.40880263
+
+			)
+		}, {
+			title : "map",
+			latlng : new kakao.maps.LatLng(36.32528429, 127.40881206
+
+			)
+		}, {
+			title : "map",
+			latlng : new kakao.maps.LatLng(36.3252921, 127.40881972
+
+			)
+		}, {
+			title : "map",
+			latlng : new kakao.maps.LatLng(36.32529614, 127.40883014
+
+			)
+		}, {
+			title : "map",
+			latlng : new kakao.maps.LatLng(36.32529809, 127.40884203
+
+			)
+		}, {
+			title : "map",
+			latlng : new kakao.maps.LatLng(36.32530122, 127.40885389
+
+			)
+		}, {
+			title : "map",
+			latlng : new kakao.maps.LatLng(36.32529618, 127.40887244
+
+			)
+		}, {
+			title : "map",
+			latlng : new kakao.maps.LatLng(36.32529125, 127.40888253
+
+			)
+		}, {
+			title : "map",
+			latlng : new kakao.maps.LatLng(36.32528525, 127.40889439
+
+			)
+		}, {
+			title : "map",
+			latlng : new kakao.maps.LatLng(36.32527828, 127.40890381
+
+			)
+		}, {
+			title : "map",
+			latlng : new kakao.maps.LatLng(36.32527067, 127.40891241
+
+			)
+		}, {
+			title : "map",
+			latlng : new kakao.maps.LatLng(36.32526151, 127.40891987
+
+			)
+		}, {
+			title : "map",
+			latlng : new kakao.maps.LatLng(36.32525342, 127.40892973
+
+			)
+		}, {
+			title : "map",
+			latlng : new kakao.maps.LatLng(36.32524628, 127.4089424
+
+			)
+		}, {
+			title : "map",
+			latlng : new kakao.maps.LatLng(36.3252372, 127.40895332
+
+			)
+		}, {
+			title : "map",
+			latlng : new kakao.maps.LatLng(36.32522984, 127.40896374
+
+			)
+		}, {
+			title : "map",
+			latlng : new kakao.maps.LatLng(36.32522128, 127.40897372
+
+			)
+		}, {
+			title : "map",
+			latlng : new kakao.maps.LatLng(36.325212, 127.40898373
+
+			)
+		}, {
+			title : "map",
+			latlng : new kakao.maps.LatLng(36.32520312, 127.40899108
+
+			)
+		}, {
+			title : "map",
+			latlng : new kakao.maps.LatLng(36.32519398, 127.40899849
+
+			)
+		}, {
+			title : "map",
+			latlng : new kakao.maps.LatLng(36.32518545, 127.40900615
+
+			)
+		}, {
+			title : "map",
+			latlng : new kakao.maps.LatLng(36.32517789, 127.40901475
+
+			)
+		}, {
+			title : "map",
+			latlng : new kakao.maps.LatLng(36.32517109, 127.40902452
+
+			)
+		}, {
+			title : "map",
+			latlng : new kakao.maps.LatLng(36.32516367, 127.40903357
+
+			)
+		}, {
+			title : "map",
+			latlng : new kakao.maps.LatLng(36.32515471, 127.4090412
+
+			)
+		}, {
+			title : "map",
+			latlng : new kakao.maps.LatLng(36.32514703, 127.40905137
+
+			)
+		}, {
+			title : "map",
+			latlng : new kakao.maps.LatLng(36.32513932, 127.40906174
+
+			)
+		}, {
+			title : "map",
+			latlng : new kakao.maps.LatLng(36.32513122, 127.40907129
+
+			)
+		}, {
+			title : "map",
+			latlng : new kakao.maps.LatLng(36.32512086, 127.40907856
+
+			)
+		}, {
+			title : "map",
+			latlng : new kakao.maps.LatLng(36.32511198, 127.40908731
+
+			)
+		}, {
+			title : "map",
+			latlng : new kakao.maps.LatLng(36.32510439, 127.40909731
+
+			)
+		}, {
+			title : "map",
+			latlng : new kakao.maps.LatLng(36.32509649, 127.40910729
+
+			)
+		}, {
+			title : "map",
+			latlng : new kakao.maps.LatLng(36.32508736, 127.40911803
+
+			)
+		}, {
+			title : "map",
+			latlng : new kakao.maps.LatLng(36.32507691, 127.4091259
+
+			)
+		}, {
+			title : "map",
+			latlng : new kakao.maps.LatLng(36.32506626, 127.4091334
+
+			)
+		}, {
+			title : "map",
+			latlng : new kakao.maps.LatLng(36.32505685, 127.40914214
+
+			)
+		}, {
+			title : "map",
+			latlng : new kakao.maps.LatLng(36.32504728, 127.409151
+
+			)
+		}, {
+			title : "map",
+			latlng : new kakao.maps.LatLng(36.3250367, 127.40915757
+
+			)
+		}, {
+			title : "map",
+			latlng : new kakao.maps.LatLng(36.32502774, 127.40916485
+
+			)
+		}, {
+			title : "map",
+			latlng : new kakao.maps.LatLng(36.32501688, 127.40917302
+
+			)
+		}, {
+			title : "map",
+			latlng : new kakao.maps.LatLng(36.32500652, 127.40918251
+
+			)
+		}, {
+			title : "map",
+			latlng : new kakao.maps.LatLng(36.32499659, 127.40919169
+
+			)
+		}, {
+			title : "map",
+			latlng : new kakao.maps.LatLng(36.32498744, 127.40920049
+
+			)
+		}, {
+			title : "map",
+			latlng : new kakao.maps.LatLng(36.32497822, 127.40920923
+
+			)
+		}, {
+			title : "map",
+			latlng : new kakao.maps.LatLng(36.32497069, 127.40921789
+
+			)
+		}, {
+			title : "map",
+			latlng : new kakao.maps.LatLng(36.32496226, 127.40922652
+
+			)
+		}, {
+			title : "map",
+			latlng : new kakao.maps.LatLng(36.32495449, 127.40923584
+
+			)
+		}, {
+			title : "map",
+			latlng : new kakao.maps.LatLng(36.32494515, 127.40924222
+
+			)
+		}, {
+			title : "map",
+			latlng : new kakao.maps.LatLng(36.32493514, 127.40924825
+
+			)
+		}, {
+			title : "map",
+			latlng : new kakao.maps.LatLng(36.32492544, 127.4092547
+
+			)
+		}, {
+			title : "map",
+			latlng : new kakao.maps.LatLng(36.32490711, 127.40926713
+
+			)
+		}, {
+			title : "map",
+			latlng : new kakao.maps.LatLng(36.32489376, 127.40927974
+
+			)
+		}, {
+			title : "map",
+			latlng : new kakao.maps.LatLng(36.32487854, 127.40926013
+
+			)
+		}, {
+			title : "map",
+			latlng : new kakao.maps.LatLng(36.32488841, 127.40924312
+
+			)
+		}, {
+			title : "map",
+			latlng : new kakao.maps.LatLng(36.32490447, 127.40923684
+
+			)
+		}, {
+			title : "map",
+			latlng : new kakao.maps.LatLng(36.32491255, 127.40922932
+
+			)
+		}, {
+			title : "map",
+			latlng : new kakao.maps.LatLng(36.32491913, 127.4092179
+
+			)
+		}, {
+			title : "map",
+			latlng : new kakao.maps.LatLng(36.32491591, 127.40920608
+
+			)
+		}, {
+			title : "map",
+			latlng : new kakao.maps.LatLng(36.32491031, 127.40919517
+
+			)
+		}, {
+			title : "map",
+			latlng : new kakao.maps.LatLng(36.3249023, 127.40918747
+
+			)
+		}, {
+			title : "map",
+			latlng : new kakao.maps.LatLng(36.32489585, 127.40917471
+
+			)
+		}, {
+			title : "map",
+			latlng : new kakao.maps.LatLng(36.32488937, 127.40916288
+
+			)
+		}, {
+			title : "map",
+			latlng : new kakao.maps.LatLng(36.32488249, 127.40915122
+
+			)
+		}, {
+			title : "map",
+			latlng : new kakao.maps.LatLng(36.32487645, 127.4091402
+
+			)
+		}, {
+			title : "map",
+			latlng : new kakao.maps.LatLng(36.32486847, 127.40912841
+
+			)
+		}, {
+			title : "map",
+			latlng : new kakao.maps.LatLng(36.32486171, 127.40911801
+
+			)
+		}, {
+			title : "map",
+			latlng : new kakao.maps.LatLng(36.32485913, 127.40910641
+
+			)
+		}, {
+			title : "map",
+			latlng : new kakao.maps.LatLng(36.3248513, 127.40908762
+
+			)
+		}, {
+			title : "map",
+			latlng : new kakao.maps.LatLng(36.32485035, 127.40907582
+
+			)
+		}, {
+			title : "map",
+			latlng : new kakao.maps.LatLng(36.32484556, 127.40905918
+
+			)
+		}, {
+			title : "map",
+			latlng : new kakao.maps.LatLng(36.32484186, 127.40904863
+
+			)
+		}, {
+			title : "map",
+			latlng : new kakao.maps.LatLng(36.32483596, 127.40903865
+
+			)
+		}, {
+			title : "map",
+			latlng : new kakao.maps.LatLng(36.3248277, 127.4090246
+
+			)
+		}, {
+			title : "map",
+			latlng : new kakao.maps.LatLng(36.32482554, 127.40900848
+
+			)
+		}, {
+			title : "map",
+			latlng : new kakao.maps.LatLng(36.32482773, 127.40899154
+
+			)
+		}, {
+			title : "map",
+			latlng : new kakao.maps.LatLng(36.32483202, 127.40897384
+
+			)
+		}, {
+			title : "map",
+			latlng : new kakao.maps.LatLng(36.32483729, 127.40895532
+
+			)
+		}, {
+			title : "map",
+			latlng : new kakao.maps.LatLng(36.32484218, 127.40894111
+
+			)
+		}, {
+			title : "map",
+			latlng : new kakao.maps.LatLng(36.32484708, 127.40892905
+
+			)
+		}, {
+			title : "map",
+			latlng : new kakao.maps.LatLng(36.32485217, 127.40891736
+
+			)
+		}, {
+			title : "map",
+			latlng : new kakao.maps.LatLng(36.32485798, 127.40890507
+
+			)
+		}, {
+			title : "map",
+			latlng : new kakao.maps.LatLng(36.32486346, 127.40889139
+
+			)
+		}, {
+			title : "map",
+			latlng : new kakao.maps.LatLng(36.32487128, 127.40887782
+
+			)
+		}, {
+			title : "map",
+			latlng : new kakao.maps.LatLng(36.32488103, 127.40886756
+
+			)
+		}, {
+			title : "map",
+			latlng : new kakao.maps.LatLng(36.32488744, 127.40885718
+
+			)
+		}, {
+			title : "map",
+			latlng : new kakao.maps.LatLng(36.3248926, 127.40884622
+
+			)
+		}, {
+			title : "map",
+			latlng : new kakao.maps.LatLng(36.32489926, 127.40883688
+
+			)
+		}, {
+			title : "map",
+			latlng : new kakao.maps.LatLng(36.32490511, 127.40882558
+
+			)
+		}, {
+			title : "map",
+			latlng : new kakao.maps.LatLng(36.3249107, 127.40881375
+
+			)
+		}, {
+			title : "map",
+			latlng : new kakao.maps.LatLng(36.32491543, 127.4088011
+
+			)
+		}, {
+			title : "map",
+			latlng : new kakao.maps.LatLng(36.32492384, 127.40878069
+
+			)
+		}, {
+			title : "map",
+			latlng : new kakao.maps.LatLng(36.3249241, 127.40876249
+
+			)
+		}, {
+			title : "map",
+			latlng : new kakao.maps.LatLng(36.32493734, 127.40874839
+
+			)
+		}, {
+			title : "map",
+			latlng : new kakao.maps.LatLng(36.32494579, 127.40874251
+
+			)
+		}, {
+			title : "map",
+			latlng : new kakao.maps.LatLng(36.32495432, 127.40873708
+
+			)
+		}, {
+			title : "map",
+			latlng : new kakao.maps.LatLng(36.32497004, 127.40872916
+
+			)
+		}, {
+			title : "map",
+			latlng : new kakao.maps.LatLng(36.32497884, 127.40872214
+
+			)
+		}, {
+			title : "map",
+			latlng : new kakao.maps.LatLng(36.32498755, 127.4087152
+
+			)
+		}, {
+			title : "map",
+			latlng : new kakao.maps.LatLng(36.32500012, 127.40871227
+
+			)
+		}, {
+			title : "map",
+			latlng : new kakao.maps.LatLng(36.32501137, 127.40871171
+
+			)
+		}, {
+			title : "map",
+			latlng : new kakao.maps.LatLng(36.32501997, 127.4087081
+
+			)
+		}, {
+			title : "map",
+			latlng : new kakao.maps.LatLng(36.32503106, 127.40870267
+
+			)
+		}, {
+			title : "map",
+			latlng : new kakao.maps.LatLng(36.32503888, 127.40868673
+
+			)
+		}, {
+			title : "map",
+			latlng : new kakao.maps.LatLng(36.32504159, 127.40866786
+
+			)
+		}, {
+			title : "map",
+			latlng : new kakao.maps.LatLng(36.32503809, 127.40865445
+
+			)
+		}, {
+			title : "map",
+			latlng : new kakao.maps.LatLng(36.32503628, 127.40864349
+
+			)
+		}, {
+			title : "map",
+			latlng : new kakao.maps.LatLng(36.3250273, 127.40863353
+
+			)
+		}, {
+			title : "map",
+			latlng : new kakao.maps.LatLng(36.32502724, 127.40862154
+
+			)
+		}, {
+			title : "map",
+			latlng : new kakao.maps.LatLng(36.32503344, 127.40863379
+
+			)
+		}, {
+			title : "map",
+			latlng : new kakao.maps.LatLng(36.32502904, 127.40864806
+
+			)
+		}, {
+			title : "map",
+			latlng : new kakao.maps.LatLng(36.32503864, 127.40866709
+
+			)
+		}, {
+			title : "map",
+			latlng : new kakao.maps.LatLng(36.32504789, 127.40869198
+
+			)
+		}, {
+			title : "map",
+			latlng : new kakao.maps.LatLng(36.32512495, 127.40874399
+
+			)
+		}, {
+			title : "map",
+			latlng : new kakao.maps.LatLng(36.32520848, 127.40881495
+
+			)
+		}, {
+			title : "map",
+			latlng : new kakao.maps.LatLng(36.32506998, 127.40882554
+
+			)
+		}, {
+			title : "map",
+			latlng : new kakao.maps.LatLng(36.32520773, 127.40882113)
+		} ];
+
+		// 마커 이미지의 이미지 주소입니다
+		var imageSrc = "https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png";
+
+		for (var i = 0; i < positions.length; i++) {
+
+			// 마커 이미지의 이미지 크기 입니다
+			var imageSize = new kakao.maps.Size(24, 35);
+
+			// 마커 이미지를 생성합니다    
+			var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize);
+
+			// 마커를 생성합니다
+			var marker = new kakao.maps.Marker({
+				map : map, // 마커를 표시할 지도
+				position : positions[i].latlng, // 마커를 표시할 위치
+				title : positions[i].title, // 마커의 타이틀, 마커에 마우스를 올리면 타이틀이 표시됩니다
+				image : markerImage
+			// 마커 이미지 
+			});
+		}
+	</script>
+</body>
+</html>
