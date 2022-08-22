@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="jquery-3.6.0.min.js">
+	
+</script>
+
+<style type="text/css">
+table {
+	border-spacing: 0px;
+}
+
+.omokback {
+	width: 40px;
+	height: 40px;
+	background-position: center;
+	background-size: cover;
+	cursor: pointer;
+}
+</style>
+<script>
+var arr2D =[
+	[0,0,0,0,0,0,0,0,0,0],
+	[0,0,0,0,0,0,0,0,0,0],
+	[0,0,0,0,0,0,0,0,0,0],
+	[0,0,0,0,0,0,0,0,0,0],
+	[0,0,0,0,0,0,0,0,0,0],
+	[0,0,0,0,0,0,0,0,0,0],
+	[0,0,0,0,0,0,0,0,0,0],
+	[0,0,0,0,0,0,0,0,0,0],
+	[0,0,0,0,0,0,0,0,0,0],
+	[0,0,0,0,0,0,0,0,0,0]
+] 
+	
+	</script>
+</head>
+<body>
+	<script>
+		document.write("<table id='omok'>");
+		for (i = 0; i < 10 + 1; i++) {
+			document.write("<tr>");
+			for (j = 0; j < 10 + 1; j++) {
+				document
+						.write(`<td style='background-image: url(static/0.png);' class='omokback' onclick='dol()'></td>`);
+			}
+			document.write("</tr>");
+		};
+	</script>
+	<script>
+		let flagStone = true;
+		function dol() {
+			if (flagStone) {
+				event.target.style.backgroundImage = "url(static/1.png)";
+				event.target.onclick = "#";
+				flagStone = !flagStone;
+			} else {
+				event.target.style.backgroundImage = "url(static/2.png)";
+				event.target.onclick = "#";
+				flagStone = !flagStone;
+			}
+		}
+	</script>
+
+</body>
+</html>

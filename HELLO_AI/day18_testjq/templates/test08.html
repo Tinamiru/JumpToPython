@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="jquery-3.6.0.min.js">
+	
+</script>
+
+<style type="text/css">
+#myResult {
+	border: 1px solid;
+	width: 200px;
+	height: 300px;
+}
+</style>
+<body>
+	<input type="text" id="myStar" value="">
+	</div>
+	<input type="button" value="스타트리" id='btn' />
+	<br>
+	<div id="myResult"></div>
+
+	<script>
+	$('#btn').click(function change() {
+			let num = $('#myStar').val*1;
+			let result = $('#myResult');
+			let star = "";
+			for (let i = 1; i < num + 1; i++) {
+				for (let j = 0; j < i; j++) {
+					star += "*";
+				}
+				star += "<br>";
+			}
+			result.html = star;
+		});
+	</script>
+</body>
+</html>

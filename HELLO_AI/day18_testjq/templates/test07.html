@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="jquery-3.6.0.min.js">
+	
+</script>
+<body>
+	<label>나 : </label>
+	<input type="text" id="mymy" value="">
+	</div>
+	<br>
+	<label>컴 : </label>
+	<input type="text" id="comcom" value="" readonly>
+	</div>
+	<br>
+	<input type="button" value="게임하기" id='btn'/>
+	<br>
+	<input type="text" id="myResult" value="" readonly>
+
+	<script>
+		function shuffle(array) {
+		  array.sort(() => Math.random() - 0.5);
+		}
+	
+		$('#btn').click(function change() {
+			let random = ["가위","바위","보"];
+			
+			shuffle(random);
+			
+			let me = $('#mymy').val;
+			let com = random[0];
+			$('#comcom').val = com;
+			let result = $('#myResult');
+			
+			com.val = random[0];
+			
+	        if (me == com){
+	        	result.val = "비김";
+	            }
+	        else if( (me == "가위" && com == "보") || (me == "바위" && com == "가위") || (me == "보" && com == "바위")){
+	        	result.val = "이김";
+	        } 
+	        else if( me != "가위" && me != "바위" & me != "보"){
+	        	result.val = "가위, 바위, 보만 입력해라.";            
+	        }
+	        else{
+	        	result.val = "짐"; 
+	        }
+		});
+	</script>
+</body>
+</html>

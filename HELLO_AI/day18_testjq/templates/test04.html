@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="jquery-3.6.0.min.js">
+	
+</script>
+
+<style type="text/css">
+#myResult {
+	border: 1px solid;
+	width: 200px;
+	height: 300px;
+}
+</style>
+<body>
+	<select id="select">
+		<option value="2">2</option>
+		<option value="3">3</option>
+		<option value="4">4</option>
+		<option value="5">5</option>
+		<option value="6">6</option>
+		<option value="7">7</option>
+		<option value="8">8</option>
+		<option value="9">9</option>
+	</select>
+	<input type="button" value="단수" id='btn' />
+	<br>
+	<div id="myResult"></div>
+
+	<script>
+		$('#btn').click(function change() {
+			let dan = $('#select').val * 1;
+			let result = $('#myResult');
+			let gugudan = "";
+			for (let i = 1; i < 9 + 1; i++) {
+				gugudan += dan + " * " + i + " = " + (dan * i) + "<br>";
+			}
+			result.html = gugudan;
+		});
+	</script>
+</body>
+</html>

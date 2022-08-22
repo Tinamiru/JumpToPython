@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="jquery-3.6.0.min.js">
+	
+</script>
+
+<style type="text/css">
+input[type="text"] {
+	width: 20px;
+}
+</style>
+<body>
+	<input type="text" id="myLeft" value=""> 부터
+	<input type="text" id="myRight" value=""> 까지
+	<input type="text" id="myBeasu" value=""> 배수의 합
+	<input type="button" value="=" id='btn'/>
+	<input type="text" id="myResult" value="">
+
+	<script>
+	$('.btn').click(function change(e) {
+			let num1 = Number($('#myLeft').value);
+			let num2 = Number($('#myRight').value);
+			let beasu = Number($('#myBeasu').value);
+			let result = $('#myResult');
+			
+			let sum = 0;
+
+			for (let i = num1; i <= num2; i++) {
+				if ((i % beasu) == 0) {
+					sum += i;
+				}
+			}
+			result.val = sum;
+		});
+	</script>
+</body>
+</html>

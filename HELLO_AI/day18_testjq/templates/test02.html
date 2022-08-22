@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="jquery-3.6.0.min.js">
+	
+</script>
+<body>
+	<input type="text" id="myInput" value="100">
+	</div>
+	<input type="button" value="click" id="btn"/>
+	<script>
+		$('#btn').click(function change() {
+			let num = $('#myInput');
+			num.val = (num.val * 1) + 1;
+		});
+	</script>
+</body>
+</html>

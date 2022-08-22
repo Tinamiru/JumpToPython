@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+table {
+	border-collapse: collapse;
+}
+
+.mytd {
+	background-image: url(0.png);
+	width: 40px;
+	height: 40px;
+}
+</style>
+<script src="jquery-3.6.0.min.js"></script>
+<script type="text/javascript">
+	var flagWb = true;
+	flaEnd = false;
+	var arr2D = [   [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,     0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ],
+					[ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,     0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ],
+					[ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,     0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ],
+					[ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,     0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ],
+					[ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,     0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ],
+					[ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,     0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ],
+					[ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,     0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ],
+					[ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,     0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ],
+					[ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,     0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ],
+					[ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,     0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ],
+					[ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,     0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ],
+					[ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,     0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ],
+					[ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,     0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ],
+					[ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,     0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ],
+					[ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,     0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ],
+					[ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,     0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ],
+					[ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,     0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ],
+					[ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,     0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ],
+					[ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,     0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ],
+					[ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,     0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ],];
+
+	function myinit() {
+		var tds = document.getElementsByClassName("mytd");
+		for (var i = 0; i < arr2D.length; i++) {
+			for (var j = 0; j < arr2D[i].length; j++) {
+				tds[i * 20 + j].title = i + "," + j;
+			}
+		}
+	}
+
+	function myreset() {
+
+		for (var i = 0; i < arr2D.length; i++) {
+			for (var j = 0; j < arr2D[i].length; j++) {
+				arr2D[i][j] = 0;
+			}
+		}
+		myrender();
+		flaEnd = false;
+		flaWb = true;
+
+	}
+
+	function myclick(obj) {
+		var str_ij = obj.title;
+		var arr_ij = str_ij.split(",");
+		var i = parseInt(arr_ij[0]);
+		var j = parseInt(arr_ij[1]);
+
+		if (arr2D[i][j] > 0) {
+			return;
+		}
+
+		var stone = -1;
+
+		if (flagWb) {
+			arr2D[i][j] = 1;
+		} else {
+			arr2D[i][j] = 2;
+		}
+		console.log(arr2D[i][j]);
+
+		var up = checkUP(i, j, stone);
+		var dw = checkDw(i, j, stone);
+		var ri = checkRi(i, j, stone);
+		var le = checkLe(i, j, stone);
+		var ur = checkUr(i, j, stone);
+		var dl = checkDl(i, j, stone);
+		var ul = checkUl(i, j, stone);
+		var dr = checkDr(i, j, stone);
+		
+		console.log
+
+		var d1 = up + dw + 1;
+		var d2 = ri + le + 1;
+		var d3 = ur + dl + 1;
+		var d4 = ul + dr + 1;
+
+		myrender();
+
+		if (d1 == 5 || d2 == 5 || d3 == 5 || d4 == 5) {
+			if (flagWb) {
+				win = "백돌";
+				alert(win + "이 이겼습니다.");
+				flaEnd = true;
+			} else {
+				win = "흑돌";
+				alert(win + "이 이겼습니다.");
+				flaEnd = true;
+			}
+		}
+
+		flagWb = !flagWb;
+	}
+
+	function checkUP(i, j, stone) {
+		var cnt = 0;
+		try {
+
+			while (true) {
+				i--;
+				if (arr2D[i][j] == stone) {
+					cnt++;
+				} else {
+					return cnt;
+				}
+			}
+		} catch (err) {
+			return cnt;
+		}
+	}
+
+	function checkDw(i, j, stone) {
+		var cnt = 0;
+		try {
+			while (true) {
+				i++;
+				if (arr2D[i][j] == stone) {
+					cnt++;
+				} else {
+					return cnt;
+				}
+			}
+		} catch (err) {
+			return cnt;
+		}
+	}
+
+	function checkRi(i, j, stone) {
+		var cnt = 0;
+		try {
+
+			while (true) {
+				j++;
+				if (arr2D[i][j] == stone) {
+					cnt++;
+				} else {
+					return cnt;
+				}
+			}
+		} catch (err) {
+			return cnt;
+		}
+	}
+
+	function checkLe(i, j, stone) {
+		var cnt = 0;
+		try {
+
+			while (true) {
+				j--;
+				if (arr2D[i][j] == stone) {
+					cnt++;
+				} else {
+					return cnt;
+				}
+			}
+		} catch (err) {
+			return cnt;
+		}
+	}
+
+	function checkUr(i, j, stone) {
+		var cnt = 0;
+		try {
+
+			while (true) {
+				i--;
+				j++;
+				if (arr2D[i][j] == stone) {
+					cnt++;
+				} else {
+					return cnt;
+				}
+			}
+		} catch (err) {
+			return cnt;
+		}
+	}
+
+	function checkUl(i, j, stone) {
+		var cnt = 0;
+		try {
+
+			while (true) {
+				i--;
+				j--;
+				if (arr2D[i][j] == stone) {
+					cnt++;
+				} else {
+					return cnt;
+				}
+			}
+		} catch (err) {
+			return cnt;
+		}
+	}
+
+	function checkDr(i, j, stone) {
+		var cnt = 0;
+		try {
+
+			while (true) {
+				i++;
+				j++;
+				if (arr2D[i][j] == stone) {
+					cnt++;
+				} else {
+					return cnt;
+				}
+			}
+		} catch (err) {
+			return cnt;
+		}
+
+	}
+	function checkDl(i, j, stone) {
+		var cnt = 0;
+		try {
+
+			while (true) {
+				i++;
+				j--;
+				if (arr2D[i][j] == stone) {
+					cnt++;
+				} else {
+					return cnt;
+				}
+			}
+		} catch (err) {
+			return cnt;
+		}
+
+	}
+
+	function myrender() {
+		var tds = document.getElementsByClassName("mytd");
+		for (var i = 0; i < arr2D.length; i++) {
+			for (var j = 0; j < arr2D[i].length; j++) {
+				if (arr2D[i][j] == 0) {
+					tds[i * 20 + j].style.backgroundImage = "url('0.png')";
+				}
+				if (arr2D[i][j] == 1) {
+					tds[i * 20 + j].style.backgroundImage = "url('1.png')";
+				}
+				if (arr2D[i][j] == 2) {
+					tds[i * 20 + j].style.backgroundImage = "url('2.png')";
+				}
+
+			}
+
+		}
+	}
+</script>
+</head>
+<body onload="myinit()">
+	<a href="favascript:myreset()">다시하기</a>
+	<table>
+		<tr>
+			<td class="mytd" onclick="myclick(this)"></td>
+			<td class="mytd" onclick="myclick(this)"></td>
+			<td class="mytd" onclick="myclick(this)"></td>
+			<td class="mytd" onclick="myclick(this)"></td>
+			<td class="mytd" onclick="myclick(this)"></td>
+
+			<td class="mytd" onclick="myclick(this)"></td>
+			<td class="mytd" onclick="myclick(this)"></td>
+			<td class="mytd" onclick="myclick(this)"></td>
+			<td class="mytd" onclick="myclick(this)"></td>
+			<td class="mytd" onclick="myclick(this)"></td>
+			
+				<td class="mytd" onclick="myclick(this)"></td>
+			<td class="mytd" onclick="myclick(this)"></td>
+			<td class="mytd" onclick="myclick(this)"></td>
+			<td class="mytd" onclick="myclick(this)"></td>
+			<td class="mytd" onclick="myclick(this)"></td>
+
+			<td class="mytd" onclick="myclick(this)"></td>
+			<td class="mytd" onclick="myclick(this)"></td>
+			<td class="mytd" onclick="myclick(this)"></td>
+			<td class="mytd" onclick="myclick(this)"></td>
+			<td class="mytd" onclick="myclick(this)"></td>
+		</tr>
+			<tr>
+				<td class="mytd" onclick="myclick(this)"></td>
+				<td class="mytd" onclick="myclick(this)"></td>
+				<td class="mytd" onclick="myclick(this)"></td>
+				<td class="mytd" onclick="myclick(this)"></td>
+				<td class="mytd" onclick="myclick(this)"></td>
+	
+				<td class="mytd" onclick="myclick(this)"></td>
+				<td class="mytd" onclick="myclick(this)"></td>
+				<td class="mytd" onclick="myclick(this)"></td>
+				<td class="mytd" onclick="myclick(this)"></td>
+				<td class="mytd" onclick="myclick(this)"></td>
+			</tr>
+		<tr>
+			<td class="mytd" onclick="myclick(this)"></td>
+			<td class="mytd" onclick="myclick(this)"></td>
+			<td class="mytd" onclick="myclick(this)"></td>
+			<td class="mytd" onclick="myclick(this)"></td>
+			<td class="mytd" onclick="myclick(this)"></td>
+
+			<td class="mytd" onclick="myclick(this)"></td>
+			<td class="mytd" onclick="myclick(this)"></td>
+			<td class="mytd" onclick="myclick(this)"></td>
+			<td class="mytd" onclick="myclick(this)"></td>
+			<td class="mytd" onclick="myclick(this)"></td>
+		</tr>
+		<tr>
+			<td class="mytd" onclick="myclick(this)"></td>
+			<td class="mytd" onclick="myclick(this)"></td>
+			<td class="mytd" onclick="myclick(this)"></td>
+			<td class="mytd" onclick="myclick(this)"></td>
+			<td class="mytd" onclick="myclick(this)"></td>
+
+			<td class="mytd" onclick="myclick(this)"></td>
+			<td class="mytd" onclick="myclick(this)"></td>
+			<td class="mytd" onclick="myclick(this)"></td>
+			<td class="mytd" onclick="myclick(this)"></td>
+			<td class="mytd" onclick="myclick(this)"></td>
+		</tr>
+		<tr>
+			<td class="mytd" onclick="myclick(this)"></td>
+			<td class="mytd" onclick="myclick(this)"></td>
+			<td class="mytd" onclick="myclick(this)"></td>
+			<td class="mytd" onclick="myclick(this)"></td>
+			<td class="mytd" onclick="myclick(this)"></td>
+
+			<td class="mytd" onclick="myclick(this)"></td>
+			<td class="mytd" onclick="myclick(this)"></td>
+			<td class="mytd" onclick="myclick(this)"></td>
+			<td class="mytd" onclick="myclick(this)"></td>
+			<td class="mytd" onclick="myclick(this)"></td>
+		</tr>
+
+		<tr>
+			<td class="mytd" onclick="myclick(this)"></td>
+			<td class="mytd" onclick="myclick(this)"></td>
+			<td class="mytd" onclick="myclick(this)"></td>
+			<td class="mytd" onclick="myclick(this)"></td>
+			<td class="mytd" onclick="myclick(this)"></td>
+
+			<td class="mytd" onclick="myclick(this)"></td>
+			<td class="mytd" onclick="myclick(this)"></td>
+			<td class="mytd" onclick="myclick(this)"></td>
+			<td class="mytd" onclick="myclick(this)"></td>
+			<td class="mytd" onclick="myclick(this)"></td>
+		</tr>
+		<tr>
+			<td class="mytd" onclick="myclick(this)"></td>
+			<td class="mytd" onclick="myclick(this)"></td>
+			<td class="mytd" onclick="myclick(this)"></td>
+			<td class="mytd" onclick="myclick(this)"></td>
+			<td class="mytd" onclick="myclick(this)"></td>
+
+			<td class="mytd" onclick="myclick(this)"></td>
+			<td class="mytd" onclick="myclick(this)"></td>
+			<td class="mytd" onclick="myclick(this)"></td>
+			<td class="mytd" onclick="myclick(this)"></td>
+			<td class="mytd" onclick="myclick(this)"></td>
+		</tr>
+		<tr>
+			<td class="mytd" onclick="myclick(this)"></td>
+			<td class="mytd" onclick="myclick(this)"></td>
+			<td class="mytd" onclick="myclick(this)"></td>
+			<td class="mytd" onclick="myclick(this)"></td>
+			<td class="mytd" onclick="myclick(this)"></td>
+
+			<td class="mytd" onclick="myclick(this)"></td>
+			<td class="mytd" onclick="myclick(this)"></td>
+			<td class="mytd" onclick="myclick(this)"></td>
+			<td class="mytd" onclick="myclick(this)"></td>
+			<td class="mytd" onclick="myclick(this)"></td>
+		</tr>
+		<tr>
+			<td class="mytd" onclick="myclick(this)"></td>
+			<td class="mytd" onclick="myclick(this)"></td>
+			<td class="mytd" onclick="myclick(this)"></td>
+			<td class="mytd" onclick="myclick(this)"></td>
+			<td class="mytd" onclick="myclick(this)"></td>
+
+			<td class="mytd" onclick="myclick(this)"></td>
+			<td class="mytd" onclick="myclick(this)"></td>
+			<td class="mytd" onclick="myclick(this)"></td>
+			<td class="mytd" onclick="myclick(this)"></td>
+			<td class="mytd" onclick="myclick(this)"></td>
+		</tr>
+		<tr>
+			<td class="mytd" onclick="myclick(this)"></td>
+			<td class="mytd" onclick="myclick(this)"></td>
+			<td class="mytd" onclick="myclick(this)"></td>
+			<td class="mytd" onclick="myclick(this)"></td>
+			<td class="mytd" onclick="myclick(this)"></td>
+
+			<td class="mytd" onclick="myclick(this)"></td>
+			<td class="mytd" onclick="myclick(this)"></td>
+			<td class="mytd" onclick="myclick(this)"></td>
+			<td class="mytd" onclick="myclick(this)"></td>
+			<td class="mytd" onclick="myclick(this)"></td>
+		</tr>
+
+
+	</table>
+</body>
+</html>

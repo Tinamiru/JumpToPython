@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="jquery-3.6.0.min.js">
+	
+</script>
+<style type="text/css">
+input[type="text"] {
+	width: 15px;
+}
+</style>
+<body>
+	<label>로또번호</label>
+	<br>
+	<input type="text" class="number" value="__" readonly>
+	<input type="text" class="number" value="__" readonly>
+	<input type="text" class="number" value="__" readonly>
+	<input type="text" class="number" value="__" readonly>
+	<input type="text" class="number" value="__" readonly>
+	<input type="text" class="number" value="__" readonly>
+	<br>
+	<input type="button" value="로또번호발급" id='btn' />
+	<script>
+		function shuffle(array) {
+		  array.sort(() => Math.random() - 0.5);
+		}
+	
+		$('#btn').bind('click',function change() {
+			let random =  Array.from({length: 45}, (v,i) => i+1);
+
+			shuffle(random);
+			
+			let number = $('.number');
+			
+			for(let i = 0;i<6+1;i++){
+				number[i].val = random[i];
+			}
+		});
+	</script>
+</body>
+</html>

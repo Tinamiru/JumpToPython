@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="jquery-3.6.0.min.js">
+	
+</script>
+<body>
+	<label>나 : </label>
+	<input type="text" id="mymy" value="">
+	</div>
+	<br>
+	<label>컴 : </label>
+	<input type="text" id="comcom" value="" readonly>
+	</div>
+	<br>
+	<input type="button" value="게임하기" onclick="change()" />
+	<br>
+	<input type="text" id="myResult" value="" readonly>
+
+	<script>
+		function shuffle(array) {
+		  array.sort(() => Math.random() - 0.5);
+		}
+	
+		function change() {
+			let random = ["홀","짝"];
+			
+			shuffle(random)
+			
+			let my = document.getElementById('mymy');
+			let com = document.getElementById('comcom');
+			let result = document.getElementById('myResult');
+			
+			com.value = random[0];
+			
+			if(my.value=='홀'|| my.value=='짝'){
+				if(my.value == com.value){
+					result.value = '승리'
+				} else{
+					result.value = '패배'
+				}
+			} else{
+				result.value = '오류'
+			}
+		}
+	</script>
+</body>
+</html>

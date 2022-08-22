@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="jquery-3.6.0.min.js">
+	
+</script>
+
+<style type="text/css">
+input[type="text"] {
+	width: 20px;
+}
+</style>
+<body>
+	<input type="text" id="myLeft" value="">
+	</div>
+	+
+	<input type="text" id="myRight" value="">
+	</div>
+	<input type="button" value="=" onclick="change()" />
+	<input type="text" id="myResult" value="">
+	</div>
+
+	<script>
+		function change() {
+			let num1 = document.getElementById('myLeft');
+			let num2 = document.getElementById('myRight');
+			let result = document.getElementById('myResult');
+			result.value = num1.value * 1 + num2.value * 1;
+		}
+	</script>
+</body>
+</html>
