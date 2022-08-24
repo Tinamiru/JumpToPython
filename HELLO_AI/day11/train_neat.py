@@ -2,10 +2,6 @@ import multiprocessing as mp
 import pickle
 import os
 
-import neat
-
-from gomoku import *
-
 runs_per_net = 5
 w, h = 10, 10
 max_generation = 50
