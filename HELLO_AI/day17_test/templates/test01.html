@@ -3,16 +3,18 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<script src="jquery-3.6.0.min.js">
-	
+<script type="text/javascript">
+function myclick(){
+	var obj = document.getElementById("mydiv");
+	obj.innerHTML = "good evening";
+}
+
 </script>
+
+</head>
 <body>
 <div id="mydiv">good morning</div>
-<input type="button" value="click"  onclick="change()"/>
-<script>
-function change(){
-	document.getElementById('mydiv').innerHTML='good evening'
-}
-</script>
+<input type="button" value="click" onclick="myclick()" />
+
 </body>
 </html>

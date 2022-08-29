@@ -3,55 +3,81 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<script src="jquery-3.6.0.min.js">
+<script src="jquery-3.6.0.min.js"></script>
+<script type="text/javascript">
+function myclick(obj){
+	var str_new = $(obj).val();
+	var str_old = $("#mytxt").val();
 	
+	$("#mytxt").val(str_old + str_new);
+
+	
+}
+function mycall(){
+	var str_tel = $("#mytxt").val();
+	alert("calling...\n"+str_tel);
+}
+
+$(document).ready(function(){
+	$('#btnCall').bind("click" , mycall);
+	$('.btnNum').bind( "click", function(event) {
+		myclick(this);
+	});
+});
 </script>
 
-<style type="text/css">
-input[type="button"] {
-	cursor: pointer;
-	border: 1px solid;
-	width: 40px;
-	height: 40px;
-	margin: 5px;
-	border: 1px solid;
-}
-</style>
+</head>
 <body>
-	<input type="text" id="result" style="width: 155px;" readonly>
-	<br>
-	<input type="button" class="btn" value="7" />
-	<input type="button" class="btn" value="8" />
-	<input type="button" class="btn" value="9" />
-	<br>
-	<input type="button" class="btn" value="4" />
-	<input type="button" class="btn" value="5" />
-	<input type="button" class="btn" value="6" />
-	<br>
-	<input type="button" class="btn" value="1" />
-	<input type="button" class="btn" value="2" />
-	<input type="button" class="btn" value="3" />
-	<br>
-	<input type="button" class="btn" value="0" />
-	<input type="button" value="del" onclick="del()"
-		style="height: 40px; width: 96px" />
-	<br>
-	<input type="button" value="Call" onclick="call()"
-		style="height: 40px; width: 152px" />
+<table border="1px">
+	<tr>
+		<td colspan="3">
+			<input id="mytxt" type="text" style="width: 120px;text-align: right;" value="" />
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<input type="button" style="width: 40px" value="1" class="btnNum" />
+		</td>
+		<td>
+			<input type="button" style="width: 40px" value="2" class="btnNum" />
+		</td>
+		<td>
+			<input type="button" style="width: 40px" value="3" class="btnNum" />
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<input type="button" style="width: 40px" value="4" class="btnNum" />
+		</td>
+		<td>
+			<input type="button" style="width: 40px" value="5" class="btnNum" />
+		</td>
+		<td>
+			<input type="button" style="width: 40px" value="6" class="btnNum" />
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<input type="button" style="width: 40px" value="7" class="btnNum" />
+		</td>
+		<td>
+			<input type="button" style="width: 40px" value="8" class="btnNum" />
+		</td>
+		<td>
+			<input type="button" style="width: 40px" value="9" class="btnNum" />
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<input type="button" style="width: 40px" value="0" class="btnNum" />
+		</td>
+		<td colspan="2">
+			<input type="button" style="width: 80px" value="call" id="btnCall" />
+		</td>
 
-	<script>
-		var text = $('#result');
-		$('.btn').click(function btn(e) {
-			text.val += e.target.val;
-		});
-		function del() {
-			if (text.val.length > 0) {
-				text.val = text.val.slice(0, -1);
-			}
-		};
-		function call() {
-			alert(text.val + "로 전화를 겁니다.");
-		};
-	</script>
+	</tr>
+	
+
+</table>
 </body>
 </html>

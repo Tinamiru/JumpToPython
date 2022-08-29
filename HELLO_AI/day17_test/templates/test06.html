@@ -1,45 +1,61 @@
+
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<script src="jquery-3.6.0.min.js">
+<script type="text/javascript">
+function myclick(){
+	var objSel = document.querySelector("#mysel");
+	var objTa = document.querySelector("#myta");
 	
-</script>
-<style type="text/css">
-input[type="text"]{
-width: 15px;
+	var dan = objSel.options[objSel.selectedIndex].value;
+	var idan = parseInt(dan);
+	console.log("dan",dan,idan);
+	
+	var txt = "";
+	
+	for(var i=1;i<=9;i++){
+		txt += idan+"*"+i+"="+(i*idan)+"\n";
+	}
+	
+	objTa.value = txt;
+	
 }
 
-</style>
-<body>
-	<label>로또번호</label>
-	<br>
-	<input type="text" class="number" value="__" readonly>
-	<input type="text" class="number" value="__" readonly>
-	<input type="text" class="number" value="__" readonly>
-	<input type="text" class="number" value="__" readonly>
-	<input type="text" class="number" value="__" readonly>
-	<input type="text" class="number" value="__" readonly>
-	<br>
-	<input type="button" value="로또번호발급" onclick="change()" />
-	<script>
-		function shuffle(array) {
-		  array.sort(() => Math.random() - 0.5);
-		}
-	
-		function change() {
-			let random =  Array.from({length: 45}, (v,i) => i+1);
+</script>
 
-			console.log(random);
-			shuffle(random);
-			
-			let number = document.getElementsByClassName('number');
-			
-			for(let i = 0;i<6+1;i++){
-				number[i].value = random[i];
-			}
-		}
-	</script>
+</head>
+<body>
+<table border="1px">
+	<tr>
+		<td>단수:</td>
+		<td>
+			<select id="mysel">
+				<option value="2">2</option>
+				<option value="3">3</option>
+				<option value="4">4</option>
+				<option value="5">5</option>
+				<option value="6">6</option>
+				<option value="7">7</option>
+				<option value="8">8</option>
+				<option value="9">9</option>
+			</select>
+		</td>
+	</tr>
+
+	<tr>
+		<td colspan="2" >
+			<input type="button" value="출력하기" onclick="myclick()"  />
+		</td>
+	</tr>
+	<tr>
+		<td colspan="2" >
+			<textarea id="myta" rows="10" cols="10"></textarea>
+		</td>
+	</tr>
+	
+
+</table>
 </body>
 </html>

@@ -3,52 +3,77 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<script src="jquery-3.6.0.min.js">
+<script src="jquery-3.6.0.min.js"></script>
+<script type="text/javascript">
+function myclick(){
 	
-</script>
-<body>
-	<label>나 : </label>
-	<input type="text" id="mymy" value="">
-	</div>
-	<br>
-	<label>컴 : </label>
-	<input type="text" id="comcom" value="" readonly>
-	</div>
-	<br>
-	<input type="button" value="게임하기" id='btn'/>
-	<br>
-	<input type="text" id="myResult" value="" readonly>
+	var strF = $("input[name='radioF']:checked").val();
+	var strL = $("input[name='radioL']:checked").val();
+	var intF = parseInt(strF);
+	var intL = parseInt(strL);
+	
+	console.log(intF,intL);
+	
+	var txt = "";
 
-	<script>
-		function shuffle(array) {
-		  array.sort(() => Math.random() - 0.5);
-		}
+	for(var i=intF;i<=intL;i++){
+		txt += drawStar(i);
+	}
 	
-		$('#btn').click(function change() {
-			let random = ["가위","바위","보"];
-			
-			shuffle(random);
-			
-			let me = $('#mymy').val;
-			let com = random[0];
-			$('#comcom').val = com;
-			let result = $('#myResult');
-			
-			com.val = random[0];
-			
-	        if (me == com){
-	        	result.val = "비김";
-	            }
-	        else if( (me == "가위" && com == "보") || (me == "바위" && com == "가위") || (me == "보" && com == "바위")){
-	        	result.val = "이김";
-	        } 
-	        else if( me != "가위" && me != "바위" & me != "보"){
-	        	result.val = "가위, 바위, 보만 입력해라.";            
-	        }
-	        else{
-	        	result.val = "짐"; 
-	        }
-		});
-	</script>
+	$("#myta").val(txt);
+}
+
+function drawStar(cnt){
+	var ret = "";
+	for(var i=0;i<cnt;i++){
+		ret += "*";
+	}
+	ret += "\n";
+	return ret;
+}
+
+$(document).ready(function(){
+	$('#btn').bind("click" , myclick);
+});
+
+</script>
+
+</head>
+<body>
+<table border="1px">
+	<tr>
+		<td>첫별수:</td>
+		<td>
+			<input type="radio" value="2" name="radioF" >2
+			<input type="radio" value="3" name="radioF" >3
+			<input type="radio" value="4" name="radioF" >4
+			<input type="radio" value="5" name="radioF" >5
+		</td>
+	</tr>
+	<tr>
+		<td>끝별수:</td>
+		<td>
+			<input type="radio" value="6" name="radioL" >6
+			<input type="radio" value="7" name="radioL" >7
+			<input type="radio" value="8" name="radioL" >8
+			<input type="radio" value="9" name="radioL" >9
+		</td>
+	</tr>
+	
+
+	<tr>
+		<td colspan="2" >
+			<input type="button" value="출력하기" id="btn" />
+		</td>
+	</tr>
+	<tr>
+		<td colspan="2" >
+			<textarea id="myta" rows="10" cols="10"></textarea>
+		</td>
+	</tr>
+	
+
+</table>
 </body>
 </html>
+
