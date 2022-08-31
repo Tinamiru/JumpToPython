@@ -3,55 +3,74 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<script src="jquery-3.6.0.min.js">
+<script type="text/javascript">
+function myclick(obj){
+	var str_new = obj.value;
+	var str_old = document.querySelector("#mytxt").value;
 	
+	document.querySelector("#mytxt").value = str_old + str_new;
+	
+}
+function mycall(){
+	var str_tel = document.querySelector("#mytxt").value;
+	alert("calling...\n"+str_tel);
+}
+
+
 </script>
 
-<style type="text/css">
-input[type="button"] {
-	cursor: pointer;
-	border: 1px solid;
-	width: 40px;
-	height: 40px;
-	margin: 5px;
-	border: 1px solid;
-}
-</style>
+</head>
 <body>
-	<input type="text" id="result" style="width: 155px;" readonly>
-	<br>
-	<input type="button" onclick="btn(event)" value="7" />
-	<input type="button" onclick="btn(event)" value="8" />
-	<input type="button" onclick="btn(event)" value="9" />
-	<br>
-	<input type="button" onclick="btn(event)" value="4" />
-	<input type="button" onclick="btn(event)" value="5" />
-	<input type="button" onclick="btn(event)" value="6" />
-	<br>
-	<input type="button" onclick="btn(event)" value="1" />
-	<input type="button" onclick="btn(event)" value="2" />
-	<input type="button" onclick="btn(event)" value="3" />
-	<br>
-	<input type="button" onclick="btn(event)" value="0" />
-	<input type="button" value="del" onclick="del()"
-		style="height: 40px; width: 96px" />
-	<br>
-	<input type="button" value="Call" onclick="call()"
-		style="height: 40px; width: 152px" />
+<table border="1px">
+	<tr>
+		<td colspan="3">
+			<input id="mytxt" type="text" style="width: 120px;text-align: right;" value="" />
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<input type="button" style="width: 40px" value="1" onclick="myclick(this)" />
+		</td>
+		<td>
+			<input type="button" style="width: 40px" value="2" onclick="myclick(this)" />
+		</td>
+		<td>
+			<input type="button" style="width: 40px" value="3" onclick="myclick(this)" />
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<input type="button" style="width: 40px" value="4" onclick="myclick(this)" />
+		</td>
+		<td>
+			<input type="button" style="width: 40px" value="5" onclick="myclick(this)" />
+		</td>
+		<td>
+			<input type="button" style="width: 40px" value="6" onclick="myclick(this)" />
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<input type="button" style="width: 40px" value="7" onclick="myclick(this)" />
+		</td>
+		<td>
+			<input type="button" style="width: 40px" value="8" onclick="myclick(this)" />
+		</td>
+		<td>
+			<input type="button" style="width: 40px" value="9" onclick="myclick(this)" />
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<input type="button" style="width: 40px" value="0" onclick="myclick(this)" />
+		</td>
+		<td colspan="2">
+			<input type="button" style="width: 80px" value="call" onclick="mycall()" />
+		</td>
 
-	<script>
-		var text = document.getElementById('result');
-		function btn(event) {
-			text.value += event.target.value;
-		};
-		function del() {
-			if (text.value.length > 0) {
-				text.value = text.value.slice(0, -1);
-			}
-		};
-		function call() {
-			alert(text.value + "로 전화를 겁니다.");
-		};
-	</script>
+	</tr>
+	
+
+</table>
 </body>
 </html>

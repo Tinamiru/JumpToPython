@@ -3,32 +3,26 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<script src="jquery-3.6.0.min.js">
+<script type="text/javascript">
+function myclick(){
+	var a = document.getElementById("mya").value;
+	var b = document.getElementById("myb").value;
+	var aa = parseInt(a);
+	var bb = parseInt(b);
 	
+	document.getElementById("myc").value  = aa+bb;
+	
+}
+
 </script>
 
-<style type="text/css">
-input[type="text"] {
-	width: 20px;
-}
-</style>
+</head>
 <body>
-	<input type="text" id="myLeft" value="">
-	</div>
-	+
-	<input type="text" id="myRight" value="">
-	</div>
-	<input type="button" value="=" onclick="change()" />
-	<input type="text" id="myResult" value="">
-	</div>
+<input type="text" style="width: 20px;" id="mya" value="1" >
++
+<input type="text" style="width: 20px;" id="myb" value="2" >
+<input type="button" value="=" onclick="myclick()" />
+<input type="text" style="width: 20px;" id="myc" value="" >
 
-	<script>
-		function change() {
-			let num1 = document.getElementById('myLeft');
-			let num2 = document.getElementById('myRight');
-			let result = document.getElementById('myResult');
-			result.value = num1.value * 1 + num2.value * 1;
-		}
-	</script>
 </body>
 </html>

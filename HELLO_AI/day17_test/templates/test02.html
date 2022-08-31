@@ -3,17 +3,20 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<script src="jquery-3.6.0.min.js">
-	
-</script>
-<body>
-<input type="text" id="myInput" value="100"></div>
-<input type="button" value="click"  onclick="change()"/>
-<script>
-function change(){
-	let num = document.getElementById('myInput');
-	num.value = (num.value * 1) + 1;
+<script type="text/javascript">
+function mydouble(){
+	var obj = document.getElementById("mytxt");
+	var a = obj.value;
+	var aa = parseInt(a)*2;
+	obj.value = aa;
 }
+
 </script>
+
+</head>
+<body>
+<input type="text" id="mytxt" value="100" >
+<input type="button" value="double" onclick="mydouble()" />
+
 </body>
 </html>

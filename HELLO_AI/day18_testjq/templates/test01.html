@@ -3,17 +3,22 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<script src="jquery-3.6.0.min.js">
-	
+<script src="jquery-3.6.0.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	$("#btn").click(function(){
+		$("#mydiv").html("good evening");
+	});
+});
+
 </script>
+
+
+</head>
 <body>
 <div id="mydiv">good morning</div>
-<input type="button" id="btn" value="click"/>
-<script>
+<input type="button" value="click" id="btn" />
 
-$('#btn').click(function change(){
-	$('#mydiv').html='good evening'
-});
-</script>
+
 </body>
 </html>
